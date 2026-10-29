@@ -4,7 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f6f2">
-  <meta name="description" content="Typostar — Προσκλητήρια γάμου, βάπτισης και εκτυπώσεις υψηλής ποιότητας.">
+  <meta name="description" content="Typostar — Προσκλητήρια γάμου, βάπτισης και επαγγελματικές κάρτες υψηλής ποιότητας.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Typostar | Προσκλητήρια & Κάρτες">
+  <meta property="og:description" content="Προσκλητήρια γάμου, βάπτισης και επαγγελματικές κάρτες υψηλής ποιότητας.">
+  <meta property="og:url" content="https://typostar.github.io/Typostar/">
+  <meta property="og:image" content="https://typostar.github.io/Typostar/share-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Typostar | Προσκλητήρια & Κάρτες">
+  <meta name="twitter:description" content="Προσκλητήρια γάμου, βάπτισης και επαγγελματικές κάρτες υψηλής ποιότητας.">
+  <meta name="twitter:image" content="https://typostar.github.io/Typostar/share-preview.jpg">
   <title>Typostar | Προσκλητήρια & Εκτυπώσεις</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,12 +129,6 @@
       display: flex; align-items: center; justify-content: center; text-align: center;
       position: relative; overflow: hidden;
     }
-    .hero::before, .hero::after {
-      content: ""; position: absolute; width: 230px; height: 230px;
-      border: 1px solid var(--line); border-radius: 50%; pointer-events: none;
-    }
-    .hero::before { top: -145px; left: -105px; }
-    .hero::after { bottom: -155px; right: -105px; }
     .hero-inner { max-width: 760px; position: relative; z-index: 1; }
     .eyebrow {
       margin: 0 0 22px; color: var(--accent); font-size: .75rem;
@@ -135,10 +140,12 @@
     }
     .hero h1 { font-size: clamp(3.7rem, 11vw, 7.8rem); line-height: .98; margin: 0 0 26px; }
     .hero-copy { max-width: 590px; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2vw, 1.13rem); line-height: 1.9; }
-    .hero-rule { width: 54px; height: 1px; margin: 35px auto 0; background: var(--accent); }
     .content-page { max-width: 900px; min-height: 440px; margin: 0 auto; padding: clamp(65px, 10vw, 110px) 24px 90px; text-align: center; }
     .section-title { margin: 0 0 16px; font-size: clamp(2.5rem, 6vw, 4.3rem); }
     .section-copy { max-width: 620px; margin: 0 auto; color: var(--muted); line-height: 1.8; }
+    .section-copy.compact { max-width: none; width: max-content; max-width: 100%; white-space: nowrap; font-size: clamp(.68rem, 2.7vw, 1rem); }
+    .section-copy.cards-copy { max-width: 430px; }
+    .section-copy.cards-copy span { display: block; }
     .contact-list { margin: 38px auto 0; max-width: 560px; display: grid; gap: 12px; text-align: left; }
     .contact-item { display: grid; grid-template-columns: 44px 1fr; gap: 15px; align-items: center; padding: 17px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
     .contact-symbol { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
@@ -193,8 +200,16 @@
         </button>
         <div class="submenu" id="invitationsSubmenu">
           <a href="#wedding" class="menu-link" data-page="wedding">Γάμου</a>
-          <a href="#baptism" class="menu-link" data-page="baptism">Βαπτίσεις</a>
-          <a href="#all" class="menu-link" data-page="all">Όλα</a>
+          <a href="#baptism" class="menu-link" data-page="baptism">Βάπτισης</a>
+          <a href="#wedding-baptism" class="menu-link" data-page="wedding-baptism">Γάμου &amp; Βάπτισης</a>
+        </div>
+        <div class="menu-divider"></div>
+        <button type="button" class="submenu-toggle" id="cardsToggle" aria-expanded="false" aria-controls="cardsSubmenu">
+          <span>Κάρτες</span><span class="chevron">›</span>
+        </button>
+        <div class="submenu" id="cardsSubmenu">
+          <a href="#business-cards" class="menu-link" data-page="business-cards">Επαγγελματικές Κάρτες</a>
+          <a href="#personal-cards" class="menu-link" data-page="personal-cards">Προσωπικές Κάρτες</a>
         </div>
         <div class="menu-divider"></div>
         <a href="#contact" class="menu-link" data-page="contact">Επικοινωνία</a>
@@ -215,44 +230,61 @@
     <section class="page active" id="home" aria-labelledby="home-title">
       <div class="hero">
         <div class="hero-inner">
-          <p class="eyebrow">Προσκλητήρια · Εκτυπώσεις</p>
+          <p class="eyebrow">Προσκλητήρια · Κάρτες</p>
           <h1 id="home-title">Typostar</h1>
-          <p class="hero-copy">Καλωσορίσατε στο Typostar. Εξειδικευόμαστε σε προσκλητήρια γάμου, βάπτισης και άλλες εκτυπώσεις υψηλής ποιότητας.</p>
-          <div class="hero-rule"></div>
+          <p class="hero-copy">Καλωσορίσατε στο Typostar. Εξειδικευόμαστε σε προσκλητήρια γάμου, βάπτισης και επαγγελματικές κάρτες υψηλής ποιότητας.</p>
         </div>
       </div>
     </section>
 
     <section class="page" id="wedding" aria-labelledby="wedding-title">
       <div class="content-page">
-        <p class="eyebrow">Typostar · Συλλογή</p>
+        <p class="eyebrow">TYPOSTAR · ΠΡΟΣΚΛΗΤΗΡΙΑ</p>
         <h1 class="section-title" id="wedding-title">Προσκλητήρια Γάμου</h1>
-        <p class="section-copy">Ανακαλύψτε τη συλλογή μας από προσκλητήρια γάμου.</p>
+        <p class="section-copy compact">Ανακαλύψτε τη συλλογή μας από προσκλητήρια γάμου.</p>
         <div class="coming-soon">Η συλλογή προϊόντων θα προστεθεί σύντομα.</div>
       </div>
     </section>
 
     <section class="page" id="baptism" aria-labelledby="baptism-title">
       <div class="content-page">
-        <p class="eyebrow">Typostar · Συλλογή</p>
+        <p class="eyebrow">TYPOSTAR · ΠΡΟΣΚΛΗΤΗΡΙΑ</p>
         <h1 class="section-title" id="baptism-title">Προσκλητήρια Βάπτισης</h1>
-        <p class="section-copy">Βρείτε ιδέες και προσκλητήρια για μια ξεχωριστή ημέρα.</p>
+        <p class="section-copy compact">Ανακαλύψτε τη συλλογή μας από προσκλητήρια βάπτισης.</p>
         <div class="coming-soon">Η συλλογή προϊόντων θα προστεθεί σύντομα.</div>
       </div>
     </section>
 
-    <section class="page" id="all" aria-labelledby="all-title">
+    <section class="page" id="wedding-baptism" aria-labelledby="wedding-baptism-title">
       <div class="content-page">
-        <p class="eyebrow">Typostar · Συλλογή</p>
-        <h1 class="section-title" id="all-title">Όλα τα Προσκλητήρια</h1>
-        <p class="section-copy">Όλες οι συλλογές της Typostar σε ένα σημείο.</p>
+        <p class="eyebrow">TYPOSTAR · ΠΡΟΣΚΛΗΤΗΡΙΑ</p>
+        <h1 class="section-title" id="wedding-baptism-title">Γάμου &amp; Βάπτισης</h1>
+        <p class="section-copy">Ανακαλύψτε τη συλλογή μας από προσκλητήρια γάμου &amp; βάπτισης.</p>
+        <div class="coming-soon">Η συλλογή προϊόντων θα προστεθεί σύντομα.</div>
+      </div>
+    </section>
+
+    <section class="page" id="business-cards" aria-labelledby="business-cards-title">
+      <div class="content-page">
+        <p class="eyebrow">TYPOSTAR · ΚΑΡΤΕΣ</p>
+        <h1 class="section-title" id="business-cards-title">Επαγγελματικές Κάρτες</h1>
+        <p class="section-copy cards-copy">Ανακαλύψτε τη συλλογή μας από <span>επαγγελματικές κάρτες.</span></p>
+        <div class="coming-soon">Η συλλογή προϊόντων θα προστεθεί σύντομα.</div>
+      </div>
+    </section>
+
+    <section class="page" id="personal-cards" aria-labelledby="personal-cards-title">
+      <div class="content-page">
+        <p class="eyebrow">TYPOSTAR · ΚΑΡΤΕΣ</p>
+        <h1 class="section-title" id="personal-cards-title">Προσωπικές Κάρτες</h1>
+        <p class="section-copy cards-copy">Ανακαλύψτε τη συλλογή μας από <span>Προσωπικές Κάρτες.</span></p>
         <div class="coming-soon">Η συλλογή προϊόντων θα προστεθεί σύντομα.</div>
       </div>
     </section>
 
     <section class="page" id="contact" aria-labelledby="contact-title">
       <div class="content-page">
-        <p class="eyebrow">Είμαστε εδώ για εσάς</p>
+        <p class="eyebrow">TYPOSTAR · ΕΠΙΚΟΙΝΩΝΙΑ</p>
         <h1 class="section-title" id="contact-title">Επικοινωνία</h1>
         <p class="section-copy">Επικοινωνήστε μαζί μας ή βρείτε μας στον χάρτη.</p>
         <div class="contact-list">
@@ -266,7 +298,7 @@
           </div>
           <div class="contact-item">
             <span class="contact-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg></span>
-            <div><span class="contact-label">Τοποθεσία</span><a class="contact-value" href="https://maps.app.goo.gl/mDcXLw4QVgc4dKnY9?g_st=ic" target="_blank" rel="noopener noreferrer">Typostar · Άνοιγμα στον χάρτη ↗</a></div>
+            <div><span class="contact-label">Τοποθεσία</span><a class="contact-value" href="https://maps.app.goo.gl/mDcXLw4QVgc4dKnY9?g_st=ic" target="_blank" rel="noopener noreferrer">Typostar · Άνοιγμα στον χάρτη</a></div>
           </div>
         </div>
       </div>
@@ -296,6 +328,8 @@
     const navigation = document.getElementById('navigation');
     const invitationsToggle = document.getElementById('invitationsToggle');
     const invitationsSubmenu = document.getElementById('invitationsSubmenu');
+    const cardsToggle = document.getElementById('cardsToggle');
+    const cardsSubmenu = document.getElementById('cardsSubmenu');
     const themeButton = document.getElementById('themeButton');
     const themeIcon = document.getElementById('themeIcon');
     const pages = [...document.querySelectorAll('.page')];
@@ -315,6 +349,10 @@
       const isOpen = invitationsSubmenu.classList.toggle('open');
       invitationsToggle.setAttribute('aria-expanded', String(isOpen));
     });
+    cardsToggle.addEventListener('click', () => {
+      const isOpen = cardsSubmenu.classList.toggle('open');
+      cardsToggle.setAttribute('aria-expanded', String(isOpen));
+    });
 
     function showPage(pageName) {
       const validPage = pages.some(page => page.id === pageName);
@@ -327,7 +365,7 @@
       menuLinks.forEach(link => link.classList.toggle('active', link.dataset.page === target));
       closeMenu();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.title = target === 'home' ? 'Typostar | Προσκλητήρια & Εκτυπώσεις' :
+      document.title = target === 'home' ? 'Typostar | Προσκλητήρια & Κάρτες' :
         `${document.getElementById(target)?.querySelector('h1')?.textContent || 'Typostar'} | Typostar`;
     }
     menuLinks.forEach(link => link.addEventListener('click', event => {
@@ -346,8 +384,8 @@
       body.classList.toggle('dark-mode', dark);
       themeButton.setAttribute('aria-label', dark ? 'Ενεργοποίηση φωτεινού θέματος' : 'Ενεργοποίηση σκοτεινού θέματος');
       themeIcon.innerHTML = dark
-        ? '<path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>'
-        : '<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>';
+        ? '<path d="M19.2 15.3A8.2 8.2 0 0 1 8.7 4.8 8.5 8.5 0 1 0 19.2 15.3Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>'
+        : '<circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.55 1.55M17.52 17.52l1.55 1.55M2 12h2.2M19.8 12H22M4.93 19.07l1.55-1.55M17.52 6.48l1.55-1.55" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
       try { localStorage.setItem('typostar-theme', dark ? 'dark' : 'light'); } catch (e) {}
     }
     themeButton.addEventListener('click', () => setTheme(!body.classList.contains('dark-mode')));
